@@ -3,8 +3,11 @@ const URLS_TO_CACHE = [
   "/",
   "/index.html",
   "/manifest.json",
-  "/icons/image.png",
-  "/icons/image.png"
+  "/favicon/favicon-72x72.png",
+  "/favicon/favicon-96x96.png",
+  "/favicon/favicon-128x128.png",
+  "/favicon/favicon-192x192.png",
+  "/favicon/favicon-512x512.png"
 ];
 
 // تثبيت
