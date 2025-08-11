@@ -1,0 +1,11 @@
+img{
+    border-radius: 20px;
+    padding: 2px;
+    
+}
+.hover:hover{
+    color: rgb(9, 9, 58) !important;
+    font-size: 1.5rem !important;
+    transition: .5s ease-in-out !important;
+
+}

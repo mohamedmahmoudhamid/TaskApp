@@ -1,0 +1,151 @@
+
+
+.card-client {
+  background: #074444;
+  /* width: 16rem; */
+  margin-top: 180px;
+    /* height: 16rem; */
+ 
+  padding: 25px 20px;
+  border: 4px solid #7cdacc;
+  box-shadow: 0 6px 10px rgba(207, 212, 222, 1);
+  border-radius: 10px;
+  text-align: center;
+  color: #fff;
+  font-family: "Tajawal", "Poppins", sans-serif;
+  transition: all 0.3s ease;
+  
+}
+.photo{
+    padding: 60px;
+    width: 100px;
+    height: 100px;
+}
+/* .card-client:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 15px rgba(207, 212, 222, 0.8);
+} */
+
+.user-picture {
+  overflow: hidden;
+  width: 5rem;
+  height: 5rem;
+  border: 4px solid #7cdacc;
+  border-radius: 999px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.user-picture svg {
+  width: 2.5rem;
+  fill: currentColor;
+}
+
+.name-client {
+  margin: 20px 0 0;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.name-client span {
+  display: block;
+  font-weight: 300;
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+.social-media {
+  position: relative;
+  margin-top: 25px;
+  padding-top: 25px;
+}
+
+.social-media:before {
+  content: " ";
+  display: block;
+  width: 60%;
+  height: 2px;
+  margin: 0 auto;
+  background: #7cdacc;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.social-media a {
+  position: relative;
+  margin: 0 8px;
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+
+.social-media a svg {
+  width: 1.1rem;
+  fill: currentColor;
+  transition: transform 0.3s ease;
+}
+
+.social-media a:hover svg {
+  transform: scale(1.2);
+}
+
+.tooltip-social {
+  background: #262626;
+  display: block;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  padding: 0.5rem 0.8rem;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -10px);
+  transition: all 0.3s ease;
+  z-index: 10;
+  white-space: nowrap;
+}
+
+.tooltip-social:after {
+  content: " ";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: #262626 transparent transparent transparent;
+}
+
+.social-media a:hover .tooltip-social {
+  opacity: 1;
+  transform: translate(-50%, -15px);
+}
+
+/* للشاشات الصغيرة */
+@media (max-width: 480px) {
+  .card-client {
+    width: 85%;
+    padding: 20px 15px;
+  }
+  
+  .user-picture {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+  
+  .name-client {
+    font-size: 1.1rem;
+  }
+  
+  .name-client span {
+    font-size: 0.9rem;
+  }
+}
