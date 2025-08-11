@@ -68,9 +68,8 @@ const Create = ({ themeMode, setThemeMode }) => {
                     display: "flex",
                     flexDirection: "column",
                     mt: "15px",
-                    ml: { md: 0, xs: 2 },
-                    p: 3,
-            
+                   
+                    
                     borderRadius: 3,
 
                     ml: { md: 50, xs: 0, sm: 10,},
