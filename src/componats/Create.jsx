@@ -73,7 +73,7 @@ const Create = ({ themeMode, setThemeMode }) => {
             
                     borderRadius: 3,
 
-                    ml: { md: 50, xs: 1, sm: 10,},
+                    ml: { md: 50, xs: 0, sm: 10,},
                     p: 5,
                 }}
                 noValidate
