@@ -67,14 +67,14 @@ const Create = ({ themeMode, setThemeMode }) => {
                     width: "366px",
                     display: "flex",
                     flexDirection: "column",
-                    mt: "66px",
-                    ml: { md: 80, xs: 2 },
+                    mt: "15px",
+                    ml: { md: 0, xs: 2 },
                     p: 3,
             
                     borderRadius: 3,
-                   
-                    ml: { md: 80, xs: 35, sm: 33 },
-                    p: 5
+
+                    ml: { md: 50, xs: 1, sm: 10,},
+                    p: 5,
                 }}
                 noValidate
                 autoComplete="off"

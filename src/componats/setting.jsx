@@ -32,7 +32,7 @@ const Setting = ({ themeMode, setThemeMode }) => {
   };
 
   return (
-    <Box sx={{ maxWidth: 450, mx: "auto",    ml: { md: 80, xs: 35, sm: 33 }, mt: 10, p: 3, boxShadow: 3, borderRadius: 2 }}>
+    <Box sx={{ maxWidth: 450, mx: "auto",  p:5,  ml: { md: 50, xs: 0, sm: 10 ,lg:70}, mt: 10, p: 3, boxShadow: 3, borderRadius: 2 }}>
       <ButtonAppBar themeMode={themeMode} setThemeMode={setThemeMode} />
 
       <Typography variant="h5" sx={{ mb: 3, textAlign: 'center' }}>

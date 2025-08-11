@@ -67,7 +67,7 @@ const DailyProgress = () => {
   };
 
   return (
-    <Box sx={{ maxWidth: 800, mx: 'auto', mt: 10,    ml: { md: 80, xs: 35, sm: 33 },p:5 }}>
+    <Box sx={{ maxWidth: 800, mx: 'auto', mt: 10,    ml: { md: 50, xs: 0, sm: 10 ,lg:55},p:5 }}>
       <Paper elevation={3} sx={{ p: 3, mb: 3 }}>
         <Typography variant="h5" gutterBottom>
           تسجيل التقدم اليومي

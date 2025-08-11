@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import ButtonAppBar from "./componats/appbar";
 import NotFound from "./componats/notfound";
 import About from "./componats/about";
@@ -16,6 +16,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import ProgressSummary from "./componats/ProgressSummary";
 import DailyProgress from "./componats/DailyProgress";
+
 function App() {
   const [themeMode, setThemeMode] = useState(() => {
     return localStorage.getItem("theme") || "light";
@@ -36,7 +37,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <LocalizationProvider dateAdapter={AdapterDateFns}>
-          <BrowserRouter>
+          <HashRouter>
             <ButtonAppBar themeMode={themeMode} setThemeMode={setThemeMode} />
 
             <Routes>
@@ -67,9 +68,8 @@ function App() {
               <Route path="*" element={<NotFound />} />
 
               <Route path="/nav" element={<Nav />} />
-        
             </Routes>
-          </BrowserRouter>
+          </HashRouter>
         </LocalizationProvider>
       </ThemeProvider>
     </DataProvider>

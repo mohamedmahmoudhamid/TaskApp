@@ -13,7 +13,10 @@ import {
   ListItemIcon,
   ListItemText,
   useTheme,
-  IconButton
+  IconButton,
+  Box,
+  CssBaseline,
+  useMediaQuery,
 } from "@mui/material";
 import {
   Home,
@@ -24,15 +27,23 @@ import {
   DarkMode,
   Flag,
   Assessment,
-  TrendingUp
+  TrendingUp,
+  Menu as MenuIcon,
 } from "@mui/icons-material";
 import "./appbar.css";
+
+const drawerWidth = 240;
 
 export default function ButtonAppBar({ themeMode, setThemeMode }) {
   const theme = useTheme();
   const location = useLocation();
+
+  // يتغير ليشمل الشاشات حتى md (التابلت)
+  const isTabletOrSmaller = useMediaQuery(theme.breakpoints.down("md"));
+
   const [userName, setUserName] = React.useState("");
   const [userImage, setUserImage] = React.useState("");
+  const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const loadUserData = () => {
     const userData = localStorage.getItem("user");
@@ -50,7 +61,6 @@ export default function ButtonAppBar({ themeMode, setThemeMode }) {
     loadUserData();
   }, [location]);
 
-  // متابعة التغييرات في localStorage من أي مكان في التطبيق
   React.useEffect(() => {
     const handleStorageChange = () => {
       loadUserData();
@@ -66,6 +76,10 @@ export default function ButtonAppBar({ themeMode, setThemeMode }) {
     setThemeMode(newMode);
   };
 
+  const handleDrawerToggle = () => {
+    setMobileOpen((prev) => !prev);
+  };
+
   const menuItems = [
     { text: "Home", icon: <Home />, path: "/home" },
     { text: "Daily Log", icon: <Create />, path: "/create" },
@@ -73,108 +87,162 @@ export default function ButtonAppBar({ themeMode, setThemeMode }) {
     { text: "Settings", icon: <Settings />, path: "/setting" },
     { text: "Goal", icon: <Flag />, path: "/goal" },
     { text: "Progress Summary", icon: <Assessment />, path: "/ProgressSummary" },
-    { text: "Daily Progress", icon: <TrendingUp />, path: "/DailyProgress" }
+    { text: "Daily Progress", icon: <TrendingUp />, path: "/DailyProgress" },
   ];
+
+  const drawerContent = (
+    <>
+      <Divider />
+      <List>
+        {menuItems.map((item) => (
+          <ListItem
+            key={item.path}
+            disablePadding
+            sx={{
+              backgroundColor:
+                location.pathname === item.path
+                  ? themeMode === "dark"
+                    ? "rgba(255, 255, 255, 0.08)"
+                    : "rgba(0, 0, 0, 0.04)"
+                  : "transparent",
+            }}
+          >
+            <ListItemButton
+              component={Link}
+              to={item.path}
+              selected={location.pathname === item.path}
+              onClick={() => {
+                if (isTabletOrSmaller) setMobileOpen(false);
+              }}
+            >
+              <ListItemIcon>
+                {React.cloneElement(item.icon, {
+                  color: location.pathname === item.path ? "primary" : "inherit",
+                })}
+              </ListItemIcon>
+              <ListItemText
+                primary={item.text}
+                sx={{
+                  color:
+                    location.pathname === item.path
+                      ? theme.palette.primary.main
+                      : "inherit",
+                }}
+              />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </>
+  );
 
   return (
     <>
-      <div>
-        <AppBar position="fixed">
-          <Toolbar>
-            <Typography
-              variant="h6"
-              component="div"
-              sx={{ flexGrow: 1, marginLeft: "240px" }}
-            >
-              <Link
-                className="hover"
-                to="/"
-                style={{ color: "inherit", textDecoration: "none" }}
-              >
-                {`</> ${userName || "User"}`}
-              </Link>
-            </Typography>
-
-            <Link to="/profile">
-              <Avatar
-                src={userImage || "/default-profile.png"}
-                alt="Profile"
-                sx={{ ml: 1 }}
-              />
-            </Link>
-          </Toolbar>
-        </AppBar>
-      </div>
-
-      <Drawer
-        sx={{
-          width: "240px",
-          flexShrink: 0,
-          "& .MuiDrawer-paper": {
-            width: "240px",
-            boxSizing: "border-box"
-          }
-        }}
-        variant="permanent"
-        anchor="left"
+      <CssBaseline />
+      <AppBar
+        position="fixed"
+        sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        color="primary"
       >
-        <IconButton
-          onClick={toggleTheme}
-          color="inherit"
+        <Toolbar>
+          {isTabletOrSmaller && (
+            <IconButton
+              color="inherit"
+              edge="start"
+              onClick={handleDrawerToggle}
+              sx={{ mr: 1 }}
+              aria-label="open drawer"
+            >
+              <MenuIcon />
+            </IconButton>
+          )}
+
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{ flexGrow: 1, lg: isTabletOrSmaller ? 0 : `${drawerWidth}px` }}
+          >
+            <Link
+              className="hover"
+              to="/"
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
+              {`</> ${userName || "User"}`}
+            </Link>
+          </Typography>
+
+          <IconButton
+            onClick={toggleTheme}
+            color="inherit"
+            sx={{ mr: 1 }}
+            aria-label="toggle theme"
+          >
+            {themeMode === "dark" ? (
+              <DarkMode sx={{ fontSize: 28 }} />
+            ) : (
+              <LightMode sx={{ fontSize: 28, color: "#FFD700" }} />
+            )}
+          </IconButton>
+
+          <Link to="/profile">
+            <Avatar
+              src={userImage || "/default-profile.png"}
+              alt="Profile"
+              sx={{ ml: 1 }}
+            />
+          </Link>
+        </Toolbar>
+      </AppBar>
+
+      {/* Drawer للسطح المكتب (شاشات أكبر من md) */}
+      {!isTabletOrSmaller && (
+        <Drawer
+          variant="permanent"
+          open
           sx={{
-            margin: "10px",
-            "&:hover": {
-              backgroundColor: "transparent"
-            }
+            width: drawerWidth,
+            flexShrink: 0,
+            "& .MuiDrawer-paper": {
+              width: drawerWidth,
+              boxSizing: "border-box",
+              mt: "64px",
+            },
           }}
         >
-          {themeMode === "dark" ? (
-            <DarkMode sx={{ fontSize: 28 }} />
-          ) : (
-            <LightMode sx={{ fontSize: 28, color: "#FFD700" }} />
-          )}
-        </IconButton>
+          {drawerContent}
+        </Drawer>
+      )}
 
-        <Divider />
-        <List>
-          {menuItems.map((item) => (
-            <ListItem
-              key={item.path}
-              disablePadding
-              sx={{
-                backgroundColor:
-                  location.pathname === item.path
-                    ? themeMode === "dark"
-                      ? "rgba(255, 255, 255, 0.08)"
-                      : "rgba(0, 0, 0, 0.04)"
-                    : "transparent"
-              }}
-            >
-              <ListItemButton
-                component={Link}
-                to={item.path}
-                selected={location.pathname === item.path}
-              >
-                <ListItemIcon>
-                  {React.cloneElement(item.icon, {
-                    color:
-                      location.pathname === item.path ? "primary" : "inherit"
-                  })}
-                </ListItemIcon>
-                <ListItemText
-                  primary={item.text}
-                  sx={{
-                    color:
-                      location.pathname === item.path
-                        ? theme.palette.primary.main
-                        : "inherit"
-                  }}
-                />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-      </Drawer>
+      {/* Drawer للموبايل والتابلت */}
+      {isTabletOrSmaller && (
+        <Drawer
+          variant="temporary"
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
+          ModalProps={{ keepMounted: true }}
+          sx={{
+            "& .MuiDrawer-paper": {
+              width: drawerWidth,
+              boxSizing: "border-box",
+              mt: "60px",
+            },
+          }}
+        >
+          {drawerContent}
+        </Drawer>
+      )}
+
+      <Box
+        component="main"
+        sx={{
+          flexGrow: 1,
+          p: 3,
+          mt: "64px",
+          ml: isTabletOrSmaller ? 0 : `${drawerWidth}px`,
+        }}
+      >
+        {/* محتوى الداشبورد هنا */}
+      </Box>
     </>
   );
 }

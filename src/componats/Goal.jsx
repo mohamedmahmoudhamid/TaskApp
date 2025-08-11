@@ -52,7 +52,7 @@ const Goal = () => {
     : 0;
 
   return (
-    <Paper elevation={3} sx={{ p: 3, maxWidth: 500, mx: 'auto',ml:{ md: 80, xs: 35, sm: 33 }, mt: 25 }}>
+    <Paper elevation={3} sx={{ p: 3, maxWidth: 500, mx: 'auto',ml:{ md: 50, xs: 0, sm: 10 , lg:70}, mt: 25 }}>
       <Typography variant="h5" gutterBottom>
         {isEditing ? 'تحديد الهدف الجديد' : 'هدفك الحالي'}
       </Typography>

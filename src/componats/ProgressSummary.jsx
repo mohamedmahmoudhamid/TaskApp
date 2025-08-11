@@ -43,7 +43,7 @@ const ProgressSummary = () => {
   const avgDailyRequired = (goal.targetValue - goal.currentValue) / Math.max(1, daysLeft);
 
   return (
-    <Paper elevation={3} sx={{ p: 3, maxWidth: 600, mx: 'auto', mt: 10,p:5,mb:5,    ml: { md: 80, xs: 35, sm: 33 }, }}>
+    <Paper elevation={3} sx={{ p: 3, maxWidth: 600, mx: 'auto', mt: 10,p:5,mb:5,    ml: { md: 50, xs: 0, sm: 10 ,lg:70}, }}>
       <Typography variant="h5" gutterBottom>
         ملخص التقدم
       </Typography>
