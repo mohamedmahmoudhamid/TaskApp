@@ -159,7 +159,7 @@ const Goal = () => {
             
             <Button 
               variant="contained" 
-              onClick={() => navigate('/daily-progress')}
+              onClick={() => navigate('/DailyProgress')}
               fullWidth
             >
               تسجيل التقدم اليومي
