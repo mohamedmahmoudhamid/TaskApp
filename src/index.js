@@ -8,7 +8,7 @@ root.render(<App />);
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker
-      .register("/sw.js")
+      .register("./serviceWorker.js")
       .then((reg) => console.log("SW registered", reg))
       .catch((err) => console.log("SW register failed", err));
   });
