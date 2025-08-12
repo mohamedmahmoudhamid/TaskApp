@@ -15,8 +15,10 @@ const urlsToCache = [
   "/TaskApp/favicon/image128.png",
   "/TaskApp/favicon/image32.png",
   "/TaskApp/favicon/image256.png",
-  "/TaskApp/favicon/image384.png"
+  "/TaskApp/favicon/image384.png",
+
 ];
+
 
 // Install Service Worker and Cache Files
 self.addEventListener("install", (event) => {
