@@ -7,8 +7,8 @@ const urlsToCache = [
   "/index.html",
   "/static/js/bundle.js",
   "/static/css/main.css",
-  "./favicon/favicon.svg",
-  "./favicon/favicon.svg",
+  "./favicon.svg",
+  "./image.png",
 ];
 
 // Install Service Worker and Cache Files
