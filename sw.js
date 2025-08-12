@@ -3,20 +3,19 @@
 
 const CACHE_NAME = "mistermobile-cache-v1";
 const urlsToCache = [
-  "/",
-  "/index.html",
-  "/favicon/apple-touch-icon.png",
-  "/favicon/image72.png",
-  "/favicon/favicon-96x96.png",
-
-  "/favicon/web-app-manifest-192x192.png",
-  "/favicon/web-app-manifest-512x512.png",
-  "/site.webmanifest",
-  "/favicon/image16.png",
-  "/favicon/image128.png",
-  "/favicon/image32.png",
-  "/favicon/image256.png",
-  "/favicon/image384.png"
+  "/TaskApp/",
+  "/TaskApp/index.html",
+  "/TaskApp/favicon/apple-touch-icon.png",
+  "/TaskApp/favicon/image72.png",
+  "/TaskApp/favicon/favicon-96x96.png",
+  "/TaskApp/favicon/web-app-manifest-192x192.png",
+  "/TaskApp/favicon/web-app-manifest-512x512.png",
+  "/TaskApp/site.webmanifest",
+  "/TaskApp/favicon/image16.png",
+  "/TaskApp/favicon/image128.png",
+  "/TaskApp/favicon/image32.png",
+  "/TaskApp/favicon/image256.png",
+  "/TaskApp/favicon/image384.png"
 ];
 
 // Install Service Worker and Cache Files
