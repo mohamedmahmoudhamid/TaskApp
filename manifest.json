@@ -1,4 +1,16 @@
 {
+<<<<<<< HEAD
+  "short_name": "Task App",
+  "name": "Task App",
+  "icons": [
+    {
+      "src": "./image32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "./image16.png",
+=======
   "name": "MY Tasks App",
   "short_name": "TasksApp",
   "start_url": ".",
@@ -8,10 +20,32 @@
   "icons": [
     {
       "src": "/TaskApp/favicon/image16.png",
+>>>>>>> f413d4d (تحديثات جديدة)
       "sizes": "16x16",
       "type": "image/png"
     },
     {
+<<<<<<< HEAD
+      "src": "./image384.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "./web-app-manifest-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "./web-app-manifest-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#28a745",
+  "background_color": "#ffffff"
+=======
       "src": "/TaskApp/favicon/image32.png",
       "sizes": "32x32",
       "type": "image/png"
@@ -52,4 +86,5 @@
       "type": "image/png"
     }
   ]
+>>>>>>> f413d4d (تحديثات جديدة)
 }

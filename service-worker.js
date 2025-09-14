@@ -1,8 +1,16 @@
 // service-worker.js
 /* eslint-disable no-restricted-globals */
 
-const CACHE_NAME = "mistermobile-cache-v1";
+const CACHE_NAME = "taskApp-cache-v1";
 const urlsToCache = [
+<<<<<<< HEAD:public/service-worker.js
+  "/",
+  "/index.html",
+  "/static/js/bundle.js",
+  "/static/css/main.css",
+  "./favicon.svg",
+  "./image.png",
+=======
   "/TaskApp/",
   "/TaskApp/index.html",
   "/TaskApp/favicon/apple-touch-icon.png",
@@ -17,6 +25,7 @@ const urlsToCache = [
   "/TaskApp/favicon/image256.png",
   "/TaskApp/favicon/image384.png",
 
+>>>>>>> f413d4d (تحديثات جديدة):public/sw.js
 ];
 
 
