@@ -186,7 +186,7 @@ export default function ButtonAppBar({ themeMode, setThemeMode }) {
 
           <Link to="/profile">
             <Avatar
-              src={userImage || "/default-profile.png"}
+           src={userImage || process.env.PUBLIC_URL + "/default-profile.png"}
               alt="Profile"
               sx={{ ml: 1 }}
             />

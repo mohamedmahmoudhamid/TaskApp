@@ -3,13 +3,31 @@
 
 const CACHE_NAME = "taskApp-cache-v1";
 const urlsToCache = [
+<<<<<<< HEAD:public/service-worker.js
   "/",
   "/index.html",
   "/static/js/bundle.js",
   "/static/css/main.css",
   "./favicon.svg",
   "./image.png",
+=======
+  "/TaskApp/",
+  "/TaskApp/index.html",
+  "/TaskApp/favicon/apple-touch-icon.png",
+  "/TaskApp/favicon/image72.png",
+  "/TaskApp/favicon/favicon-96x96.png",
+  "/TaskApp/favicon/web-app-manifest-192x192.png",
+  "/TaskApp/favicon/web-app-manifest-512x512.png",
+  "/TaskApp/site.webmanifest",
+  "/TaskApp/favicon/image16.png",
+  "/TaskApp/favicon/image128.png",
+  "/TaskApp/favicon/image32.png",
+  "/TaskApp/favicon/image256.png",
+  "/TaskApp/favicon/image384.png",
+
+>>>>>>> f413d4d (تحديثات جديدة):public/sw.js
 ];
+
 
 // Install Service Worker and Cache Files
 self.addEventListener("install", (event) => {

@@ -89,7 +89,7 @@ const Profile = ({ themeMode, setThemeMode }) => {
 
       <Box sx={{ mb: 2, position: "relative" }}>
         <Avatar
-          src={user.image || "/default-profile.png"}
+          src={user.image || process.env.PUBLIC_URL + "/default-profile.png"}
           sx={{ width: 100, height: 100, mx: "auto", mb: 1 }}
         />
         <Box sx={{ display: "flex", justifyContent: "center", gap: 1 }}>
@@ -179,13 +179,13 @@ const Profile = ({ themeMode, setThemeMode }) => {
         ) : (
           <>
             <Tooltip title="تعديل">
-              <Button onClick={() => setIsEditing(true)} sx={{ mr: 1 }}>
+              <Button onClick={() => setIsEditing(true)} sx={{ mr: 1 }} variant="outlined">
                 تعديل
               </Button>
             </Tooltip>
 
             <Tooltip title="تسجيل الخروج">
-              <Button color="error" onClick={handleLogout}>
+              <Button color="error" onClick={handleLogout} variant="outlined">
                 تسجيل الخروج
               </Button>
             </Tooltip>

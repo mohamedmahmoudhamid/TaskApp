@@ -2,7 +2,7 @@
   "name": "Task App",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://mohamedmahmoudhamid.github.io/TaskApp",
+"homepage": "https://mohamedmahmoudhamid.github.io/TaskApp",
   "dependencies": {
     "@date-io/date-fns": "^3.2.1",
     "@emotion/react": "^11.14.0",
